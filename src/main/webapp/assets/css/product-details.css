@@ -1,0 +1,978 @@
+
+/* =========================================================
+   ZOLOTO PRODUCT DETAILS PAGE
+   Purple / lavender theme
+   File: assets/css/product-details.css
+   ========================================================= */
+
+:root {
+    --pd-purple: #6541f5;
+    --pd-purple-dark: #5130df;
+    --pd-purple-light: #eee7ff;
+    --pd-lavender: #f6f1ff;
+    --pd-pink: #fff0f0;
+    --pd-background: #faf8ff;
+    --pd-white: #ffffff;
+    --pd-text: #292344;
+    --pd-muted: #8983a7;
+    --pd-border: #e7ddff;
+    --pd-green: #269b78;
+    --pd-red: #ed625b;
+    --pd-shadow: 0 18px 45px rgba(76, 49, 140, 0.09);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body.product-details-page {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--pd-text);
+    background:
+        radial-gradient(
+            circle at 0% 20%,
+            rgba(222, 203, 255, 0.52),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 100% 35%,
+            rgba(255, 222, 226, 0.45),
+            transparent 35%
+        ),
+        var(--pd-background);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+.product-details-page a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.product-details-page button,
+.product-details-page input {
+    font: inherit;
+}
+
+.product-details-page button {
+    cursor: pointer;
+}
+
+.product-details-page button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.pd-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.97);
+    border-bottom: 1px solid rgba(225, 215, 255, 0.85);
+    box-shadow: 0 5px 22px rgba(63, 43, 103, 0.035);
+}
+
+.pd-navbar-inner {
+    width: min(1380px, calc(100% - 64px));
+    min-height: 100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.pd-brand-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.pd-logo-icon {
+    width: 68px;
+    height: 68px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--pd-purple);
+    background: var(--pd-purple-light);
+    border-radius: 23px;
+    font-size: 35px;
+}
+
+.pd-logo-name {
+    color: #28223e;
+    font-size: 35px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+}
+
+.pd-logo-dot,
+.pd-footer-logo span {
+    color: #ff817d;
+}
+
+.pd-navigation {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: clamp(20px, 4vw, 60px);
+}
+
+.pd-navigation a {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    color: #7c7697;
+    font-size: 17px;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.pd-navigation a:hover,
+.pd-navigation a.pd-active {
+    color: var(--pd-purple);
+}
+
+.pd-navigation a.pd-active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    border-radius: 5px 5px 0 0;
+    background: var(--pd-purple);
+}
+
+.pd-user-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-shrink: 0;
+}
+
+.pd-cart-link {
+    width: 62px;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--pd-white);
+    border: 1px solid var(--pd-border);
+    border-radius: 20px;
+    font-size: 25px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pd-cart-link:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--pd-shadow);
+}
+
+.pd-logout-link {
+    color: #77718f;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.pd-logout-link:hover {
+    color: var(--pd-purple);
+}
+
+
+/* =========================================================
+   MAIN LAYOUT AND BREADCRUMBS
+   ========================================================= */
+
+.pd-main {
+    width: min(1380px, calc(100% - 64px));
+    margin: 0 auto;
+    padding: 30px 0 85px;
+}
+
+.pd-breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 30px;
+    color: var(--pd-muted);
+    font-size: 14px;
+}
+
+.pd-breadcrumb a {
+    transition: color 0.2s ease;
+}
+
+.pd-breadcrumb a:hover {
+    color: var(--pd-purple);
+}
+
+.pd-breadcrumb-current {
+    max-width: 360px;
+    overflow-wrap: anywhere;
+    color: var(--pd-text);
+    font-weight: 700;
+}
+
+.pd-product-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.03fr) minmax(0, 0.97fr);
+    gap: clamp(35px, 5vw, 75px);
+    align-items: start;
+}
+
+
+/* =========================================================
+   PRODUCT IMAGE
+   ========================================================= */
+
+.pd-gallery {
+    min-width: 0;
+}
+
+.pd-main-image {
+    position: relative;
+    width: 100%;
+    height: clamp(430px, 48vw, 650px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid var(--pd-border);
+    border-radius: 32px;
+    box-shadow: var(--pd-shadow);
+}
+
+/*
+   object-fit: contain keeps the complete product visible.
+   The image remains inside its container without cropping.
+*/
+.pd-product-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 16px;
+    background: #ffffff;
+}
+
+.pd-image-fallback {
+    width: 100%;
+    height: 100%;
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background:
+        radial-gradient(
+            circle at 20% 15%,
+            #eadfff,
+            transparent 45%
+        ),
+        linear-gradient(135deg, #fbf8ff, #fff5f5);
+    border-radius: 22px;
+    color: var(--pd-text);
+}
+
+.pd-image-fallback[hidden] {
+    display: none;
+}
+
+.pd-image-fallback span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    margin-bottom: 12px;
+    color: var(--pd-purple);
+    background: var(--pd-purple-light);
+    border-radius: 22px;
+    font-size: 38px;
+}
+
+.pd-image-fallback p {
+    margin: 0;
+    color: var(--pd-muted);
+    font-size: 16px;
+}
+
+.pd-image-offer {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    z-index: 2;
+    padding: 10px 15px;
+    color: var(--pd-red);
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 14px;
+    font-size: 14px;
+    font-weight: 700;
+    box-shadow: 0 4px 14px rgba(42, 28, 82, 0.06);
+}
+
+.pd-image-caption {
+    margin: 18px 5px 0;
+    color: var(--pd-muted);
+    font-size: 14px;
+    letter-spacing: 0.4px;
+}
+
+
+/* =========================================================
+   PRODUCT INFORMATION
+   ========================================================= */
+
+.pd-product-information {
+    min-width: 0;
+    padding: 18px 0 0;
+}
+
+.pd-eyebrow {
+    margin: 0 0 16px;
+    color: #ff6866;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.pd-brand-rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 12px;
+}
+
+.pd-product-brand {
+    color: #8980ad;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.7px;
+}
+
+.pd-rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 12px;
+    white-space: nowrap;
+    color: #9a6712;
+    background: #fff0c6;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.pd-product-title {
+    margin: 0;
+    color: var(--pd-text);
+    font-size: clamp(30px, 3vw, 43px);
+    font-weight: 800;
+    line-height: 1.22;
+    letter-spacing: -1.1px;
+    overflow-wrap: anywhere;
+}
+
+.pd-product-description {
+    margin: 22px 0 25px;
+    color: var(--pd-muted);
+    font-size: 16px;
+    line-height: 1.9;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+.pd-price-section {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin: 24px 0;
+}
+
+.pd-current-price {
+    color: var(--pd-purple);
+    font-size: clamp(29px, 3vw, 37px);
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.pd-discount-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    color: #df554f;
+    background: #ffe3e0;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.pd-stock-information {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 22px 0;
+    color: var(--pd-green);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.pd-stock-dot,
+.pd-out-stock-dot {
+    width: 9px;
+    height: 9px;
+    flex: 0 0 9px;
+    border-radius: 50%;
+    background: var(--pd-green);
+}
+
+.pd-out-stock-dot {
+    background: var(--pd-red);
+}
+
+.pd-out-of-stock {
+    color: var(--pd-red);
+}
+
+.pd-divider {
+    width: 100%;
+    height: 1px;
+    margin: 28px 0;
+    background: var(--pd-border);
+}
+
+
+/* =========================================================
+   PRODUCT METADATA
+   ========================================================= */
+
+.pd-meta {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.pd-meta p {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin: 0;
+    font-size: 14px;
+}
+
+.pd-meta p > span {
+    color: var(--pd-muted);
+}
+
+.pd-meta strong {
+    text-align: right;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   ADD TO CART
+   ========================================================= */
+
+.pd-cart-form {
+    display: grid;
+    grid-template-columns: 120px minmax(0, 1fr);
+    align-items: end;
+    gap: 15px;
+    margin-top: 28px;
+}
+
+.pd-cart-form label {
+    grid-column: 1 / -1;
+    margin-bottom: -7px;
+    color: var(--pd-text);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.pd-quantity-input {
+    width: 100%;
+    height: 57px;
+    padding: 0 15px;
+    color: var(--pd-text);
+    background: #ffffff;
+    border: 1px solid var(--pd-border);
+    border-radius: 15px;
+    outline: none;
+}
+
+.pd-quantity-input:focus {
+    border-color: var(--pd-purple);
+    box-shadow: 0 0 0 3px rgba(101, 65, 245, 0.1);
+}
+
+.pd-add-cart-button {
+    min-width: 0;
+    height: 57px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 0 20px;
+    color: #ffffff;
+    background: linear-gradient(
+        110deg,
+        #7852ff,
+        #5935e9
+    );
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 24px rgba(99, 63, 231, 0.22);
+    font-size: 15px;
+    font-weight: 800;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.pd-add-cart-button span {
+    font-size: 21px;
+}
+
+.pd-add-cart-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(99, 63, 231, 0.28);
+}
+
+
+/* =========================================================
+   WISHLIST BUTTON
+   ========================================================= */
+
+.pd-wishlist-form {
+    margin-top: 13px;
+}
+
+.pd-wishlist-button {
+    width: 100%;
+    min-height: 55px;
+    padding: 12px 18px;
+    color: var(--pd-purple);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #daceff;
+    border-radius: 15px;
+    font-size: 15px;
+    font-weight: 700;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.pd-wishlist-button:hover {
+    background: var(--pd-purple-light);
+    border-color: var(--pd-purple);
+}
+
+
+/* =========================================================
+   BENEFITS
+   ========================================================= */
+
+.pd-benefits {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.pd-benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 17px 15px;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid var(--pd-border);
+    border-radius: 18px;
+}
+
+.pd-benefit-icon {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--pd-purple);
+    background: var(--pd-purple-light);
+    border-radius: 12px;
+    font-size: 20px;
+}
+
+.pd-benefit-item strong {
+    display: block;
+    margin-top: 2px;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.pd-benefit-item p {
+    margin: 5px 0 0;
+    color: var(--pd-muted);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   DESCRIPTION SECTION
+   ========================================================= */
+
+.pd-description-section {
+    margin-top: 75px;
+    padding: 42px;
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid var(--pd-border);
+    border-radius: 28px;
+    box-shadow: var(--pd-shadow);
+}
+
+.pd-description-section .pd-eyebrow {
+    margin-bottom: 10px;
+}
+
+.pd-description-section h2 {
+    margin: 0;
+    color: var(--pd-text);
+    font-size: 27px;
+    letter-spacing: -0.6px;
+}
+
+.pd-long-description {
+    max-width: 950px;
+    margin: 18px 0 0;
+    color: var(--pd-muted);
+    font-size: 16px;
+    line-height: 1.9;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.pd-footer {
+    padding: 42px 25px 20px;
+    text-align: center;
+    background: #28213f;
+    color: #ffffff;
+}
+
+.pd-footer-logo {
+    color: #ffffff;
+    font-size: 27px;
+    font-weight: 800;
+    letter-spacing: -0.6px;
+}
+
+.pd-footer > p {
+    margin: 10px 0 20px;
+    color: #c8c0e5;
+    font-size: 14px;
+}
+
+.pd-footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin: 20px 0 30px;
+}
+
+.pd-footer-links a {
+    color: #e0d9f5;
+    font-size: 13px;
+    transition: color 0.2s ease;
+}
+
+.pd-footer-links a:hover {
+    color: #bba6ff;
+}
+
+.pd-footer-bottom {
+    padding-top: 20px;
+    color: #b8afcf;
+    border-top: 1px solid rgba(255, 255, 255, 0.13);
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   RESPONSIVE TABLETS
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .pd-navbar-inner,
+    .pd-main {
+        width: calc(100% - 40px);
+    }
+
+    .pd-navbar-inner {
+        min-height: 85px;
+        gap: 18px;
+    }
+
+    .pd-logo-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 17px;
+        font-size: 29px;
+    }
+
+    .pd-logo-name {
+        font-size: 28px;
+    }
+
+    .pd-navigation {
+        gap: 23px;
+    }
+
+    .pd-navigation a {
+        font-size: 14px;
+    }
+
+    .pd-user-actions {
+        gap: 12px;
+    }
+
+    .pd-cart-link {
+        width: 50px;
+        height: 50px;
+        border-radius: 16px;
+    }
+
+    .pd-product-layout {
+        gap: 30px;
+    }
+
+    .pd-main-image {
+        height: 470px;
+        padding: 18px;
+    }
+
+    .pd-benefits {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .pd-navbar-inner {
+        width: calc(100% - 28px);
+        min-height: 77px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 12px 0;
+        gap: 10px;
+    }
+
+    .pd-brand-logo {
+        gap: 9px;
+    }
+
+    .pd-logo-icon {
+        width: 43px;
+        height: 43px;
+        border-radius: 14px;
+        font-size: 24px;
+    }
+
+    .pd-logo-name {
+        font-size: 24px;
+    }
+
+    .pd-user-actions {
+        gap: 10px;
+    }
+
+    .pd-cart-link {
+        width: 42px;
+        height: 42px;
+        border-radius: 13px;
+        font-size: 20px;
+    }
+
+    .pd-logout-link {
+        font-size: 12px;
+    }
+
+    .pd-navigation {
+        order: 3;
+        width: 100%;
+        height: 40px;
+        justify-content: center;
+        gap: clamp(25px, 8vw, 55px);
+    }
+
+    .pd-navigation a {
+        font-size: 13px;
+    }
+
+    .pd-navigation a.pd-active::after {
+        height: 3px;
+    }
+
+    .pd-main {
+        width: calc(100% - 28px);
+        padding: 20px 0 55px;
+    }
+
+    .pd-breadcrumb {
+        margin-bottom: 20px;
+        gap: 8px;
+        font-size: 12px;
+    }
+
+    .pd-product-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+    }
+
+    .pd-main-image {
+        height: min(100vw, 430px);
+        min-height: 280px;
+        padding: 15px;
+        border-radius: 24px;
+    }
+
+    .pd-image-offer {
+        top: 17px;
+        left: 17px;
+        padding: 8px 11px;
+        font-size: 12px;
+    }
+
+    .pd-image-caption {
+        margin-top: 12px;
+        font-size: 12px;
+    }
+
+    .pd-product-information {
+        padding-top: 10px;
+    }
+
+    .pd-eyebrow {
+        font-size: 11px;
+        letter-spacing: 2.4px;
+    }
+
+    .pd-product-title {
+        font-size: 30px;
+    }
+
+    .pd-product-description {
+        margin: 16px 0 20px;
+        font-size: 14px;
+    }
+
+    .pd-current-price {
+        font-size: 29px;
+    }
+
+    .pd-cart-form {
+        grid-template-columns: 90px minmax(0, 1fr);
+        gap: 11px;
+    }
+
+    .pd-quantity-input,
+    .pd-add-cart-button {
+        height: 53px;
+        border-radius: 13px;
+    }
+
+    .pd-add-cart-button {
+        padding: 0 10px;
+        gap: 8px;
+        font-size: 13px;
+    }
+
+    .pd-benefits {
+        gap: 10px;
+        margin-top: 25px;
+    }
+
+    .pd-benefit-item {
+        padding: 14px;
+    }
+
+    .pd-description-section {
+        margin-top: 38px;
+        padding: 25px 20px;
+        border-radius: 22px;
+    }
+
+    .pd-description-section h2 {
+        font-size: 23px;
+    }
+
+    .pd-long-description {
+        font-size: 14px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .pd-logout-link {
+        display: none;
+    }
+
+    .pd-brand-rating {
+        align-items: flex-start;
+    }
+
+    .pd-product-title {
+        font-size: 26px;
+    }
+
+    .pd-cart-form {
+        grid-template-columns: 78px minmax(0, 1fr);
+    }
+
+    .pd-add-cart-button {
+        font-size: 12px;
+    }
+}

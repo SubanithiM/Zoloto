@@ -1,0 +1,854 @@
+
+@charset "UTF-8";
+
+/* =========================================================
+   ZOLOTO WISHLIST
+   Purple / lavender theme
+   ========================================================= */
+
+:root {
+    --purple: #5433EB;
+    --purple-dark: #3921A7;
+    --purple-mid: #6C55C7;
+    --lavender: #E9E2FF;
+    --lavender-light: #F6F3FF;
+    --lavender-border: #E3DDF0;
+    --ink: #25212D;
+    --muted: #777180;
+    --white: #FFFFFF;
+    --footer: #292238;
+    --page-width: 1380px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: #FCFBFF;
+    color: var(--ink);
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--purple);
+    outline-offset: 4px;
+}
+
+/* =========================================================
+   1. STICKY NAVBAR
+   ========================================================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    min-height: 82px;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    background: rgba(255, 255, 255, 0.97);
+    border-bottom: 1px solid var(--lavender-border);
+    box-shadow: 0 4px 20px rgba(57, 33, 167, 0.035);
+}
+
+.logo,
+.footer-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--purple-dark);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 27px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.logo-mark,
+.footer-logo span {
+    color: var(--purple);
+    font-size: 19px;
+}
+
+.nav-links,
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+}
+
+.nav-links a,
+.cart-link,
+.profile-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #4C4659;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active,
+.cart-link:hover,
+.profile-link:hover {
+    color: var(--purple);
+}
+
+.cart-link > span {
+    color: var(--purple);
+    font-size: 21px;
+}
+
+.profile-link {
+    gap: 9px;
+}
+
+.profile-avatar {
+    width: 35px;
+    height: 35px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--lavender);
+    color: var(--purple-dark);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* =========================================================
+   2. MAIN CONTENT
+   ========================================================= */
+
+.wishlist-page {
+    width: min(var(--page-width), calc(100% - 80px));
+    margin: 36px auto 82px;
+}
+
+/* =========================================================
+   3. PURPLE BANNER
+   ========================================================= */
+
+.wishlist-banner {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 270px;
+    padding: 45px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    border: 1px solid #4830CB;
+    border-radius: 15px;
+    background: linear-gradient(115deg, #5433EB 0%, #4930CC 55%, #3921A7 100%);
+    color: var(--white);
+}
+
+.banner-copy {
+    position: relative;
+    z-index: 2;
+    max-width: 670px;
+}
+
+.eyebrow,
+.section-label {
+    display: block;
+    margin-bottom: 13px;
+    color: #DCD2FF;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2.2px;
+    line-height: 1.6;
+}
+
+.wishlist-banner h1 {
+    margin-bottom: 15px;
+    color: #FFFFFF;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(43px, 5vw, 66px);
+    font-weight: 400;
+    letter-spacing: -2px;
+    line-height: 1.08;
+}
+
+.wishlist-banner h1 span {
+    color: #D7CCFF;
+}
+
+.wishlist-banner p {
+    max-width: 510px;
+    color: #F0ECFF;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.banner-heart {
+    position: relative;
+    z-index: 2;
+    flex: 0 0 88px;
+    width: 88px;
+    height: 88px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    border-radius: 50%;
+    color: #FFFFFF;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 56px;
+    font-weight: 400;
+}
+
+.banner-watermark {
+    position: absolute;
+    z-index: 0;
+    right: 30px;
+    bottom: -130px;
+    color: rgba(255, 255, 255, 0.075);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 330px;
+    font-weight: 700;
+    line-height: 1;
+    pointer-events: none;
+}
+
+/* =========================================================
+   4. STATUS MESSAGES
+   ========================================================= */
+
+.wishlist-message {
+    margin-top: 20px;
+    padding: 14px 17px;
+    border-radius: 9px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.success-message {
+    border: 1px solid #D2E8D6;
+    background: #F0FAF2;
+    color: #285C36;
+}
+
+.error-message {
+    border: 1px solid #F0D5D8;
+    background: #FFF1F2;
+    color: #913845;
+}
+
+/* =========================================================
+   5. SECTION HEADING AND COUNT
+   ========================================================= */
+
+.wishlist-heading {
+    margin-top: 46px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.wishlist-heading .section-label,
+.empty-wishlist .section-label {
+    margin-bottom: 8px;
+    color: var(--purple-mid);
+}
+
+.wishlist-heading h2,
+.empty-wishlist h2 {
+    margin-bottom: 9px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(27px, 3vw, 35px);
+    font-weight: 400;
+    letter-spacing: -0.7px;
+    line-height: 1.25;
+}
+
+.wishlist-heading p,
+.empty-wishlist p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.item-count {
+    flex-shrink: 0;
+    padding: 11px 16px;
+    border: 1px solid #E2D9FF;
+    border-radius: 8px;
+    background: var(--lavender-light);
+    color: var(--purple-dark);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* =========================================================
+   6. PRODUCT GRID AND CARDS
+   ========================================================= */
+
+.wishlist-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 24px;
+}
+
+.wishlist-card {
+    min-width: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--lavender-border);
+    border-radius: 14px;
+    background: #FFFFFF;
+    box-shadow: 0 6px 22px rgba(84, 51, 235, 0.055);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease,
+                transform 0.2s ease;
+}
+
+.wishlist-card:hover {
+    transform: translateY(-3px);
+    border-color: #B7A7F5;
+    box-shadow: 0 13px 30px rgba(84, 51, 235, 0.11);
+}
+
+/* =========================================================
+   7. PRODUCT VISUAL
+   The JSP currently uses a branded placeholder visual.
+   ========================================================= */
+
+.product-visual {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background:
+        radial-gradient(circle at 50% 48%, rgba(255,255,255,0.78), transparent 35%),
+        linear-gradient(135deg, #D8CDFB 0%, #F2EEFF 48%, #BBA8F1 100%);
+    color: var(--purple-dark);
+}
+
+.visual-label {
+    position: absolute;
+    top: 17px;
+    left: 17px;
+    color: #6C55C7;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.visual-heart {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 2;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #D8CCF5;
+    border-radius: 50%;
+    background: #FFFFFF;
+    color: var(--purple);
+    font-size: 16px;
+}
+
+.visual-orbit {
+    position: absolute;
+    z-index: -1;
+    border: 1px solid rgba(108, 85, 199, 0.19);
+    border-radius: 50%;
+}
+
+.orbit-one {
+    width: 170px;
+    height: 170px;
+}
+
+.orbit-two {
+    width: 220px;
+    height: 220px;
+}
+
+.visual-brand {
+    color: #4C35B5;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+.visual-subtitle {
+    margin-top: 9px;
+    color: #7565B3;
+    font-size: 9px;
+    letter-spacing: 1.2px;
+}
+
+/* =========================================================
+   8. PRODUCT INFORMATION
+   ========================================================= */
+
+.product-content {
+    flex: 1;
+    padding: 21px;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-title-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.product-title-row h3 {
+    min-width: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.product-title-row h3 a {
+    transition: color 0.2s ease;
+}
+
+.product-title-row h3 a:hover {
+    color: var(--purple);
+}
+
+.saved-heart {
+    flex-shrink: 0;
+    color: var(--purple);
+    font-size: 17px;
+}
+
+.product-description {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.product-price {
+    margin-top: 18px;
+    margin-bottom: 17px;
+    color: var(--purple-dark);
+    font-size: 20px;
+    font-weight: 800;
+}
+
+/* =========================================================
+   9. VIEW AND REMOVE ACTIONS
+   ========================================================= */
+
+.view-product {
+    min-height: 44px;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border: 1px solid var(--purple);
+    border-radius: 8px;
+    background: var(--purple);
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 700;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.view-product:hover {
+    border-color: var(--purple-dark);
+    background: var(--purple-dark);
+}
+
+.view-product span {
+    font-size: 17px;
+}
+
+.remove-form {
+    margin-top: 10px;
+}
+
+.remove-button {
+    width: 100%;
+    min-height: 41px;
+    border: 1px solid #E5DDF8;
+    border-radius: 8px;
+    background: #FFFFFF;
+    color: #66558D;
+    font-size: 12px;
+    font-weight: 700;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.remove-button:hover {
+    background: #F5F1FF;
+    color: var(--purple-dark);
+}
+
+/* =========================================================
+   10. CLEAR WISHLIST ACTION
+   ========================================================= */
+
+.wishlist-bottom-action {
+    margin-top: 24px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.clear-button {
+    min-height: 42px;
+    padding: 0 18px;
+    border: 1px solid #D8CEF5;
+    border-radius: 8px;
+    background: #FFFFFF;
+    color: var(--purple-dark);
+    font-size: 12px;
+    font-weight: 700;
+    transition: background 0.2s ease;
+}
+
+.clear-button:hover {
+    background: var(--lavender-light);
+}
+
+/* =========================================================
+   11. EMPTY WISHLIST
+   ========================================================= */
+
+.empty-wishlist {
+    margin-top: 15px;
+    padding: 60px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid var(--lavender-border);
+    border-radius: 14px;
+    background:
+        radial-gradient(circle at top, #F1ECFF 0%, #FFFFFF 68%);
+}
+
+.empty-heart {
+    width: 76px;
+    height: 76px;
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #D9CEFA;
+    border-radius: 50%;
+    background: #F4F0FF;
+    color: var(--purple);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 46px;
+}
+
+.empty-wishlist .section-label {
+    margin-bottom: 10px;
+}
+
+.empty-wishlist h2 {
+    margin-bottom: 10px;
+}
+
+.empty-wishlist p {
+    max-width: 440px;
+}
+
+.browse-button {
+    min-height: 46px;
+    margin-top: 23px;
+    padding: 0 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    border-radius: 8px;
+    background: var(--purple);
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 700;
+    transition: background 0.2s ease;
+}
+
+.browse-button:hover {
+    background: var(--purple-dark);
+}
+
+/* =========================================================
+   12. DARK FOOTER
+   ========================================================= */
+
+.site-footer {
+    background: var(--footer);
+    color: #FFFFFF;
+}
+
+.footer-main {
+    width: min(var(--page-width), calc(100% - 80px));
+    margin: 0 auto;
+    padding: 54px 0 42px;
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr 0.8fr 1.2fr;
+    gap: 42px;
+}
+
+.footer-logo {
+    color: #FFFFFF;
+    font-size: 24px;
+}
+
+.footer-logo span {
+    color: #C9B9FF;
+}
+
+.footer-brand p,
+.footer-note p {
+    max-width: 260px;
+    margin-top: 15px;
+    color: #C8C1D5;
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 13px;
+}
+
+.footer-column h3,
+.footer-note > span {
+    margin-bottom: 5px;
+    color: #D5C9FF;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+}
+
+.footer-column a {
+    color: #D4CFDF;
+    font-size: 12px;
+    transition: color 0.2s ease;
+}
+
+.footer-column a:hover {
+    color: #FFFFFF;
+}
+
+.footer-note p {
+    margin-top: 12px;
+}
+
+.footer-bottom {
+    min-height: 62px;
+    padding: 16px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    color: #C8C1D5;
+    font-size: 10px;
+}
+
+.footer-bottom a {
+    color: #FFFFFF;
+}
+
+/* =========================================================
+   13. RESPONSIVE LAYOUT
+   ========================================================= */
+
+@media (max-width: 1000px) {
+    .wishlist-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .footer-main {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .navbar {
+        padding: 0 3%;
+        gap: 16px;
+    }
+
+    .nav-links,
+    .nav-right {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 650px) {
+    .navbar {
+        min-height: 72px;
+        padding: 12px 18px;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .logo {
+        font-size: 23px;
+    }
+
+    .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 22px;
+        padding: 7px 0 2px;
+    }
+
+    .nav-links a,
+    .cart-link,
+    .profile-link {
+        font-size: 11px;
+    }
+
+    .nav-right {
+        gap: 13px;
+    }
+
+    .profile-avatar {
+        width: 30px;
+        height: 30px;
+    }
+
+    .wishlist-page {
+        width: calc(100% - 32px);
+        margin-top: 22px;
+        margin-bottom: 50px;
+    }
+
+    .wishlist-banner {
+        min-height: 245px;
+        padding: 30px 24px;
+    }
+
+    .wishlist-banner h1 {
+        font-size: 43px;
+    }
+
+    .wishlist-banner p {
+        font-size: 12px;
+    }
+
+    .banner-heart {
+        display: none;
+    }
+
+    .banner-watermark {
+        right: -5px;
+        bottom: -70px;
+        font-size: 220px;
+    }
+
+    .wishlist-heading {
+        margin-top: 34px;
+        align-items: flex-start;
+    }
+
+    .wishlist-heading h2 {
+        font-size: 27px;
+    }
+
+    .item-count {
+        padding: 9px 11px;
+        font-size: 10px;
+    }
+
+    .wishlist-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .product-visual {
+        min-height: 250px;
+    }
+
+    .product-content {
+        padding: 19px;
+    }
+
+    .empty-wishlist {
+        padding: 45px 20px;
+    }
+
+    .footer-main {
+        width: calc(100% - 40px);
+        padding: 40px 0 30px;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px 22px;
+    }
+
+    .footer-bottom {
+        padding: 18px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 380px) {
+    .nav-links {
+        gap: 13px;
+    }
+
+    .nav-links a {
+        font-size: 10px;
+    }
+
+    .cart-link {
+        gap: 4px;
+    }
+
+    .profile-link {
+        gap: 5px;
+    }
+
+    .wishlist-banner h1 {
+        font-size: 37px;
+    }
+}

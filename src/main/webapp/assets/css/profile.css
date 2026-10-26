@@ -1,0 +1,666 @@
+
+/* ==================================================
+   ZOLOTO - COLOURFUL PROFILE PAGE
+   Theme: Violet, Pink, Coral and Lavender
+   File: profile.css
+   ================================================== */
+
+/* ---------- 1. Global Reset ---------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --purple: #6438ed;
+    --purple-dark: #4822ca;
+    --violet: #8951f5;
+    --pink: #e84fa8;
+    --coral: #ff695f;
+    --lavender: #f0e8ff;
+    --background: #faf6ff;
+    --text: #302344;
+    --muted: #827590;
+    --white: #ffffff;
+    --border: #eee4ff;
+}
+
+body {
+    font-family: "Poppins", Arial, sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+    background:
+        radial-gradient(ellipse at 5% 8%, #f2e6ff 0, transparent 32%),
+        radial-gradient(ellipse at 95% 35%, #ffe8f1 0, transparent 30%),
+        #faf7ff;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ---------- 2. Colourful Header ---------- */
+.profile-header {
+    min-height: 86px;
+    padding: 16px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid #eee5ff;
+    box-shadow: 0 5px 25px rgba(87, 48, 175, 0.06);
+}
+
+.brand-name {
+    color: var(--purple);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -1.7px;
+}
+
+.brand-name span {
+    color: var(--coral);
+}
+
+.profile-nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.profile-nav a {
+    position: relative;
+    color: #625471;
+    font-size: 13px;
+    font-weight: 600;
+    transition: color 0.25s ease;
+}
+
+.profile-nav a::after {
+    position: absolute;
+    content: "";
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -8px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, var(--purple), var(--pink));
+    transition: width 0.25s ease;
+}
+
+.profile-nav a:hover {
+    color: var(--purple);
+}
+
+.profile-nav a:hover::after {
+    width: 100%;
+}
+
+/* ---------- 3. Logout Button ---------- */
+.logout-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 11px 19px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #ff6b75, #ed489b);
+    border: 0;
+    border-radius: 12px;
+    box-shadow: 0 6px 17px rgba(237, 72, 155, 0.2);
+    font-size: 12px;
+    font-weight: 700;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.logout-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 23px rgba(237, 72, 155, 0.3);
+}
+
+/* ---------- 4. Main Page ---------- */
+.profile-page {
+    width: min(1150px, 90%);
+    margin: 0 auto;
+    padding: 48px 0 25px;
+}
+
+/* ---------- 5. Page Heading ---------- */
+.profile-heading {
+    position: relative;
+    margin-bottom: 33px;
+}
+
+.eyebrow {
+    margin-bottom: 9px;
+    color: var(--purple);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+}
+
+.profile-heading h1 {
+    color: #2e2044;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(36px, 4vw, 48px);
+    font-weight: 700;
+    letter-spacing: -1.3px;
+    line-height: 1.2;
+}
+
+.profile-heading h1 span {
+    color: var(--coral);
+}
+
+.heading-description {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* ---------- 6. Main Two-Column Layout ---------- */
+.profile-layout {
+    display: grid;
+    grid-template-columns: 300px minmax(0, 1fr);
+    align-items: start;
+    gap: 25px;
+}
+
+/* ---------- 7. Profile Sidebar ---------- */
+.profile-sidebar {
+    position: relative;
+    overflow: hidden;
+    padding: 32px 23px;
+    background: #ffffff;
+    border: 1px solid #eee1ff;
+    border-radius: 22px;
+    box-shadow: 0 15px 40px rgba(99, 56, 237, 0.09);
+    text-align: center;
+}
+
+.profile-sidebar::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 105px;
+    background: linear-gradient(120deg, #6438ed, #a34ff0, #ec69b0);
+}
+
+.profile-sidebar::after {
+    position: absolute;
+    content: "";
+    width: 180px;
+    height: 180px;
+    top: -115px;
+    right: -45px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.profile-avatar {
+    position: relative;
+    z-index: 1;
+    width: 100px;
+    height: 100px;
+    margin: 13px auto 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    background: linear-gradient(145deg, #5c31e8, #bc53ed);
+    border: 6px solid #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 10px 27px rgba(100, 56, 237, 0.23);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 29px;
+    font-weight: 700;
+}
+
+.profile-sidebar h2 {
+    color: #302344;
+    font-size: 19px;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+.profile-email {
+    margin-top: 7px;
+    color: #8a7b9d;
+    font-size: 11px;
+    overflow-wrap: anywhere;
+}
+
+.member-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+    padding: 8px 15px;
+    color: #6935d9;
+    background: linear-gradient(120deg, #eee6ff, #fbe8ff);
+    border: 1px solid #e7d8ff;
+    border-radius: 30px;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.sidebar-divider {
+    height: 1px;
+    margin: 27px 0 17px;
+    background: linear-gradient(90deg, transparent, #e5d7ff, transparent);
+}
+
+/* ---------- 8. Sidebar Navigation ---------- */
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 8px;
+    padding: 13px;
+    color: #655675;
+    background: #ffffff;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: left;
+    transition: all 0.25s ease;
+}
+
+.sidebar-link span {
+    width: 25px;
+    color: var(--purple);
+    font-size: 20px;
+    text-align: center;
+}
+
+.sidebar-link:hover {
+    color: var(--purple);
+    background: linear-gradient(100deg, #f2eaff, #fff0f8);
+    border-color: #e9dcff;
+    transform: translateX(3px);
+}
+
+/* ---------- 9. Personal Details Card ---------- */
+.profile-details-card {
+    min-width: 0;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.97);
+    border: 1px solid #eee2ff;
+    border-radius: 22px;
+    box-shadow: 0 15px 40px rgba(99, 56, 237, 0.07);
+}
+
+.details-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 27px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid #eee5fa;
+}
+
+.details-heading .eyebrow {
+    margin-bottom: 5px;
+}
+
+.details-heading h2 {
+    color: #342247;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.verified-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 12px;
+    color: #16834e;
+    background: linear-gradient(120deg, #e1f9e9, #e6fbf4);
+    border: 1px solid #d5f2df;
+    border-radius: 25px;
+    font-size: 10px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+/* ---------- 10. Colourful Information Cards ---------- */
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.detail-item {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    padding: 19px;
+    background: linear-gradient(135deg, #fbf9ff, #f6f0ff);
+    border: 1px solid #eae0ff;
+    border-radius: 15px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.detail-item::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, #7441ef, #bc5ce9);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.detail-item:nth-child(2) {
+    background: linear-gradient(135deg, #fff7fc, #ffedf6);
+    border-color: #f8dfee;
+}
+
+.detail-item:nth-child(2)::before {
+    background: linear-gradient(180deg, #e64eaa, #ff8b9d);
+}
+
+.detail-item:nth-child(3) {
+    background: linear-gradient(135deg, #f7faff, #edf3ff);
+    border-color: #e0e9ff;
+}
+
+.detail-item:nth-child(3)::before {
+    background: linear-gradient(180deg, #4388f3, #7c65ef);
+}
+
+.detail-item:nth-child(4) {
+    background: linear-gradient(135deg, #fff9f2, #fff0e4);
+    border-color: #f8e7d7;
+}
+
+.detail-item:nth-child(4)::before {
+    background: linear-gradient(180deg, #ff9c46, #ff695f);
+}
+
+.detail-item:nth-child(5) {
+    background: linear-gradient(135deg, #f5fffb, #e8fbf4);
+    border-color: #d9f1e7;
+}
+
+.detail-item:nth-child(5)::before {
+    background: linear-gradient(180deg, #27b98a, #69c9b1);
+}
+
+.detail-item:nth-child(6) {
+    background: linear-gradient(135deg, #fbf7ff, #f1eaff);
+    border-color: #e9defb;
+}
+
+.detail-item:nth-child(6)::before {
+    background: linear-gradient(180deg, #8652ed, #d05bd6);
+}
+
+.detail-item:nth-child(7) {
+    background: linear-gradient(135deg, #f6fcff, #e9f8ff);
+    border-color: #d9edf8;
+}
+
+.detail-item:nth-child(7)::before {
+    background: linear-gradient(180deg, #21a4cc, #607df0);
+}
+
+.detail-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 9px 22px rgba(89, 51, 160, 0.08);
+}
+
+.detail-item:hover::before {
+    opacity: 1;
+}
+
+.detail-item.full-width {
+    grid-column: 1 / -1;
+}
+
+.detail-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #897c9b;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.detail-value {
+    color: #382749;
+    font-size: 13px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.status-active {
+    color: #15834b;
+}
+
+/* ---------- 11. Personal Account Note ---------- */
+.profile-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    margin-top: 25px;
+    padding: 18px;
+    background: linear-gradient(115deg, #eee6ff, #fce8f5 70%, #fff0e9);
+    border: 1px solid #eadcff;
+    border-radius: 15px;
+}
+
+.note-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #ffffff;
+    background: linear-gradient(135deg, #6938eb, #b44fe6);
+    border-radius: 11px;
+    box-shadow: 0 5px 13px rgba(100, 56, 237, 0.18);
+    font-size: 19px;
+}
+
+.profile-note strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #493067;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.profile-note p {
+    color: #83738f;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+/* ---------- 12. Action Buttons ---------- */
+.profile-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 13px;
+    margin-top: 27px;
+}
+
+.continue-button {
+    min-height: 47px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 13px 20px;
+    color: #ffffff;
+    background: linear-gradient(115deg, #5433eb, #8950ee, #b84fdb);
+    border: 0;
+    border-radius: 11px;
+    box-shadow: 0 8px 20px rgba(100, 56, 237, 0.2);
+    font-size: 12px;
+    font-weight: 800;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.continue-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(100, 56, 237, 0.3);
+}
+
+.continue-button span {
+    font-size: 19px;
+}
+
+.logout-secondary {
+    min-height: 47px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    color: #e44c79;
+    background: linear-gradient(120deg, #fff0f3, #ffeaf4);
+    border: 1px solid #f8d8e6;
+    border-radius: 11px;
+    font-size: 12px;
+    font-weight: 800;
+    transition: all 0.25s ease;
+}
+
+.logout-secondary:hover {
+    color: #ffffff;
+    background: linear-gradient(120deg, #f05b82, #e84fa8);
+    border-color: transparent;
+    box-shadow: 0 7px 17px rgba(232, 79, 168, 0.2);
+}
+
+/* ---------- 13. Footer ---------- */
+.profile-footer {
+    margin-top: 36px;
+    padding: 20px 0 5px;
+    border-top: 1px solid #e9dff5;
+    text-align: center;
+}
+
+.profile-footer p {
+    color: #9588a3;
+    font-size: 11px;
+}
+
+/* ---------- 14. Keyboard Accessibility ---------- */
+a:focus-visible {
+    outline: 3px solid rgba(100, 56, 237, 0.4);
+    outline-offset: 4px;
+}
+
+/* ---------- 15. Tablet ---------- */
+@media (max-width: 850px) {
+    .profile-page {
+        width: 92%;
+    }
+
+    .profile-layout {
+        grid-template-columns: 240px minmax(0, 1fr);
+        gap: 18px;
+    }
+
+    .profile-sidebar,
+    .profile-details-card {
+        padding: 22px;
+    }
+
+    .details-grid {
+        gap: 12px;
+    }
+}
+
+/* ---------- 16. Mobile ---------- */
+@media (max-width: 650px) {
+    .profile-header {
+        padding: 15px 5%;
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+
+    .brand-name {
+        font-size: 30px;
+    }
+
+    .profile-nav {
+        order: 3;
+        width: 100%;
+        justify-content: flex-start;
+        gap: 24px;
+        padding-top: 12px;
+        border-top: 1px solid #f0e8fa;
+    }
+
+    .profile-page {
+        width: 92%;
+        padding-top: 30px;
+    }
+
+    .profile-heading h1 {
+        font-size: 36px;
+    }
+
+    .profile-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .profile-sidebar {
+        padding: 25px 20px;
+    }
+
+    .profile-details-card {
+        padding: 20px;
+    }
+
+    .details-heading h2 {
+        font-size: 21px;
+    }
+}
+
+/* ---------- 17. Small Mobile ---------- */
+@media (max-width: 400px) {
+    .details-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .detail-item.full-width {
+        grid-column: auto;
+    }
+
+    .details-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .profile-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .continue-button,
+    .logout-secondary {
+        width: 100%;
+    }
+
+    .logout-button {
+        padding: 9px 12px;
+    }
+}

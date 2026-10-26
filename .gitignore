@@ -1,0 +1,26 @@
+cat > .gitignore <<'EOF'
+# Maven build output
+target/
+
+# Eclipse files
+.classpath
+.project
+.settings/
+
+# Logs and temporary files
+*.log
+logs/
+*.tmp
+
+# Environment variables and database credentials
+.env
+.env.*
+!.env.example
+db.properties
+**/db.properties
+
+# Database backups
+*.sql
+*.dump
+*.bak
+EOF

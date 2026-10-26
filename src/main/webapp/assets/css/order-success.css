@@ -1,0 +1,409 @@
+/* =====================================================
+   ZOLOTO ORDER CONFIRMATION — LIGHT VIOLET THEME
+   File: assets/css/order-success.css
+   ===================================================== */
+
+:root {
+    --page-bg: #faf8ff;
+    --card-bg: #ffffff;
+    --panel-bg: #f7f3ff;
+    --border: #e8defb;
+    --text: #29233f;
+    --muted: #817995;
+    --violet: #6846f5;
+    --coral: #ff777d;
+    --success: #27845c;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    min-height: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    padding: 36px 18px;
+    background: linear-gradient(135deg, #fbf9ff, #f3edff);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Main confirmation card */
+.success-card {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 54px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 26px;
+    box-shadow: 0 18px 55px rgba(76, 49, 145, 0.09);
+}
+
+/* Success icon */
+.success-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 92px;
+    height: 92px;
+    margin: 0 auto 28px;
+    border: 1px solid #b9e5cf;
+    border-radius: 50%;
+    background: #effaf4;
+    color: var(--success);
+    font-size: 54px;
+}
+
+/* Heading and introduction */
+.eyebrow {
+    margin-bottom: 16px;
+    color: var(--violet);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.success-card h1 {
+    margin-bottom: 18px;
+    color: var(--text);
+    font-size: clamp(30px, 5vw, 44px);
+    line-height: 1.2;
+    text-align: center;
+}
+
+.success-card h1 span {
+    color: var(--violet);
+}
+
+.success-message {
+    max-width: 590px;
+    margin: 0 auto 34px;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.8;
+    text-align: center;
+}
+
+/* Order details panel */
+.order-details {
+    padding: 28px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: #fcfbff;
+}
+
+.order-number-label {
+    margin-bottom: 9px;
+    color: var(--muted);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.order-number {
+    margin-bottom: 26px;
+    color: var(--violet);
+    font-size: 21px;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+/* Individual order information rows */
+.order-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px 0;
+    border-top: 1px solid var(--border);
+}
+
+.order-row span {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.order-row strong {
+    color: var(--text);
+    font-size: 16px;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+.order-row .order-total {
+    color: var(--violet);
+    font-size: 23px;
+    font-weight: 800;
+}
+
+/* Status labels */
+.status-badge {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 30px;
+    background: #fff4df;
+    color: #99621b;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.status-badge.success {
+    background: #effaf4;
+    color: var(--success);
+}
+
+/* Bottom navigation actions */
+.success-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 30px;
+}
+
+.success-actions a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 13px 22px;
+    border: 1px solid var(--violet);
+    border-radius: 11px;
+    background: var(--violet);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.success-actions a:hover {
+    transform: translateY(-2px);
+    background: #5232df;
+}
+
+.success-actions a.secondary {
+    background: #ffffff;
+    color: var(--violet);
+}
+
+.success-actions a.secondary:hover {
+    background: var(--panel-bg);
+}
+
+/* Responsive layout */
+@media (max-width: 600px) {
+    body {
+        padding: 18px 12px;
+    }
+
+    .success-card {
+        padding: 28px 18px;
+        border-radius: 19px;
+    }
+
+    .order-details {
+        padding: 18px;
+    }
+
+    .order-row {
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .order-row span,
+    .order-row strong {
+        font-size: 14px;
+    }
+
+    .success-actions {
+        flex-direction: column;
+    }
+
+    .success-actions a {
+        width: 100%;
+    }
+}
+/* TEMPORARY THEME TEST */
+html body {
+    background: #f2ebff !important;
+    color: #29233f !important;
+}
+
+html body .success-container {
+    background: #ffffff !important;
+    border-color: #e8defb !important;
+}
+
+html body .success-container h1 {
+    color: #29233f !important;
+}
+
+html body .subtitle {
+    color: #716783 !important;
+}
+/* ZOLOTO ORDER SUCCESS — LIGHT VIOLET THEME */
+html,
+body {
+    min-height: 100%;
+    margin: 0;
+    background: #f6f1ff !important;
+    color: #29233f !important;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.success-container {
+    width: 100%;
+    max-width: 800px;
+    box-sizing: border-box;
+    padding: 48px;
+    background: #ffffff !important;
+    color: #29233f !important;
+    border: 1px solid #e8defb;
+    border-radius: 28px;
+    box-shadow: 0 20px 60px rgba(83, 51, 235, 0.10);
+}
+
+.success-container h1 {
+    color: #29233f !important;
+}
+
+.success-container p,
+.success-container .subtitle {
+    color: #716783 !important;
+}
+
+.success-container .eyebrow {
+    color: #6846f5 !important;
+}
+
+.success-container .success-icon {
+    background: #effaf4;
+    color: #27845c;
+    border-color: #b9e5cf;
+}
+
+.success-container .order-card,
+.success-container .order-details,
+.success-container .order-info {
+    background: #faf8ff !important;
+    color: #29233f !important;
+    border-color: #e9e0fb !important;
+}
+
+.success-container strong,
+.success-container .order-number,
+.success-container .amount {
+    color: #6846f5 !important;
+}
+
+.success-container a,
+.success-container .btn {
+    border-radius: 10px;
+}
+/* ==================================================
+   ZOLOTO ORDER SUCCESS — HIGH CONTRAST TEXT FIX
+   Paste at the very bottom of order-success.css
+   ================================================== */
+
+/* Main heading and supporting text */
+.success-container h1 {
+    color: #241b3b !important;
+    font-weight: 800;
+}
+
+.success-container p,
+.success-container .subtitle {
+    color: #514565 !important;
+}
+
+/* Order information card */
+.success-container .order-card,
+.success-container .order-details,
+.success-container .order-info {
+    color: #29213d !important;
+    background: #faf8ff !important;
+    border-color: #dfd2fa !important;
+}
+
+/* Labels: order total, payment method and status */
+.success-container .order-card p,
+.success-container .order-details p,
+.success-container .order-info p,
+.success-container .order-card span,
+.success-container .order-details span,
+.success-container .order-info span {
+    color: #55496c !important;
+}
+
+/* Order number and total amount */
+.success-container .order-number,
+.success-container .amount,
+.success-container .order-card strong,
+.success-container .order-details strong,
+.success-container .order-info strong {
+    color: #5230d5 !important;
+    font-weight: 750;
+}
+
+/* Keep payment and order status readable */
+.success-container .status,
+.success-container .payment-status {
+    color: #815000 !important;
+    font-weight: 700;
+}
+
+/* Divider lines */
+.success-container hr {
+    border: 0;
+    border-top: 1px solid #d8cdea;
+}
+
+/* Footer note */
+.success-container .note,
+.success-container small {
+    color: #625573 !important;
+}
+
+/* Buttons */
+.success-container a,
+.success-container .btn {
+    font-weight: 700;
+}
+
+.success-container a:focus-visible,
+.success-container button:focus-visible {
+    outline: 3px solid #6846f5;
+    outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 12px;
+    }
+
+    .success-container {
+        padding: 24px 18px;
+        border-radius: 18px;
+    }
+}
